@@ -1,0 +1,1856 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <meta
+      name="description"
+      content="A slightly sarcastic birthday page for Chadani."
+    />
+
+    <title>Happy Birthday, Aakriti ✨</title>
+
+    <style>
+      /* =========================================================
+       RESET
+    ========================================================= */
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: #09090d;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background:
+          radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 116, 171, 0.12),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 85% 30%,
+            rgba(119, 147, 255, 0.1),
+            transparent 30%
+          ),
+          #09090d;
+        color: #f6f2ed;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: rgba(255, 122, 173, 0.35);
+        color: white;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+      :root {
+        --pink: #ff7aae;
+        --pink-soft: #ffb3ce;
+        --purple: #9a8cff;
+        --blue: #7e9dff;
+
+        --text: #f6f2ed;
+        --muted: #aaa5ad;
+        --dim: #77737d;
+
+        --glass: rgba(255, 255, 255, 0.055);
+        --glass-border: rgba(255, 255, 255, 0.1);
+
+        --max-width: 1120px;
+        --radius: 26px;
+      }
+
+      /* =========================================================
+       BACKGROUND
+    ========================================================= */
+
+      .background {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: -3;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.25;
+        animation: drift 14s ease-in-out infinite alternate;
+      }
+
+      .orb.one {
+        width: 280px;
+        height: 280px;
+        background: #ff5e9c;
+        left: -100px;
+        top: 10%;
+      }
+
+      .orb.two {
+        width: 330px;
+        height: 330px;
+        background: #5f73ff;
+        right: -130px;
+        top: 35%;
+        animation-delay: -5s;
+      }
+
+      .orb.three {
+        width: 250px;
+        height: 250px;
+        background: #a46cff;
+        left: 40%;
+        bottom: -120px;
+        animation-delay: -9s;
+      }
+
+      @keyframes drift {
+        from {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        to {
+          transform: translate3d(30px, -40px, 0) scale(1.15);
+        }
+      }
+
+      /* =========================================================
+       NOISE
+    ========================================================= */
+
+      .noise {
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        pointer-events: none;
+        opacity: 0.035;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+      }
+
+      /* =========================================================
+       INTRO
+    ========================================================= */
+
+      .intro {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: #09090d;
+        transition:
+          opacity 0.9s ease,
+          visibility 0.9s ease;
+      }
+
+      .intro.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .intro-inner {
+        width: min(100%, 620px);
+        text-align: center;
+      }
+
+      .intro-small {
+        color: var(--dim);
+        text-transform: uppercase;
+        letter-spacing: 0.24em;
+        font-size: 0.68rem;
+        margin-bottom: 22px;
+      }
+
+      .intro-name {
+        font-family: Georgia, serif;
+        font-size: clamp(3.3rem, 14vw, 7rem);
+        font-weight: 400;
+        line-height: 0.95;
+        background: linear-gradient(135deg, #fff, #ffb4cf 45%, #9d91ff);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .intro-line {
+        min-height: 28px;
+        margin-top: 25px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .intro-button {
+        margin-top: 35px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.06);
+        color: white;
+        padding: 14px 23px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: 0.25s ease;
+      }
+
+      .intro-button:hover,
+      .intro-button:active {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-2px);
+      }
+
+      /* =========================================================
+       NAV
+    ========================================================= */
+
+      .top-nav {
+        position: fixed;
+        z-index: 100;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(calc(100% - 28px), 620px);
+        padding: 10px;
+        border: 1px solid var(--glass-border);
+        border-radius: 999px;
+        background: rgba(10, 10, 15, 0.68);
+        backdrop-filter: blur(18px);
+        display: flex;
+        justify-content: center;
+        gap: 4px;
+      }
+
+      .top-nav a {
+        flex: 1;
+        text-align: center;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.7rem;
+        padding: 8px 7px;
+        border-radius: 999px;
+        transition: 0.25s ease;
+      }
+
+      .top-nav a:hover,
+      .top-nav a:active {
+        color: white;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* =========================================================
+       GLOBAL
+    ========================================================= */
+
+      main {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      section {
+        width: min(var(--max-width), calc(100% - 36px));
+        margin-inline: auto;
+        padding: 110px 0;
+      }
+
+      .section-label {
+        color: var(--pink-soft);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        font-family: Georgia, serif;
+        font-size: clamp(2.2rem, 6vw, 4.5rem);
+        line-height: 1.03;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+      }
+
+      .section-description {
+        max-width: 600px;
+        color: var(--muted);
+        margin-top: 18px;
+        font-size: 0.95rem;
+      }
+
+      /* =========================================================
+       HERO
+    ========================================================= */
+
+      .hero {
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        padding-top: 130px;
+        padding-bottom: 80px;
+      }
+
+      .hero-content {
+        width: 100%;
+      }
+
+      .birthday-date {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
+
+      .birthday-date::before {
+        content: "";
+        width: 30px;
+        height: 1px;
+        background: var(--pink);
+      }
+
+      .hero h1 {
+        max-width: 900px;
+        font-family: Georgia, serif;
+        font-size: clamp(4rem, 15vw, 9rem);
+        font-weight: 400;
+        line-height: 0.85;
+        letter-spacing: -0.065em;
+      }
+
+      .hero h1 span {
+        display: block;
+        background: linear-gradient(120deg, #fff 20%, #ff9fc3 50%, #9e92ff 90%);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        max-width: 660px;
+        margin-top: 35px;
+        color: var(--muted);
+        font-size: clamp(0.95rem, 2vw, 1.12rem);
+      }
+
+      .hero-subtitle strong {
+        color: white;
+        font-weight: 500;
+      }
+
+      .scroll-hint {
+        margin-top: 55px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--dim);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+
+      .scroll-line {
+        width: 42px;
+        height: 1px;
+        background: var(--dim);
+      }
+
+      /* =========================================================
+       TRAITS
+    ========================================================= */
+
+      .traits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 48px;
+      }
+
+      .trait {
+        position: relative;
+        min-height: 210px;
+        padding: 28px;
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius);
+        background: var(--glass);
+        backdrop-filter: blur(15px);
+        overflow: hidden;
+        transform-style: preserve-3d;
+        transition:
+          transform 0.4s ease,
+          border-color 0.4s ease,
+          background 0.4s ease;
+      }
+
+      .trait::after {
+        content: "";
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        right: -60px;
+        bottom: -60px;
+        border-radius: 50%;
+        background: rgba(255, 116, 171, 0.12);
+        filter: blur(25px);
+      }
+
+      .trait:hover {
+        border-color: rgba(255, 170, 200, 0.25);
+        background: rgba(255, 255, 255, 0.075);
+      }
+
+      .trait-number {
+        color: var(--dim);
+        font-size: 0.7rem;
+      }
+
+      .trait h3 {
+        margin-top: 35px;
+        font-family: Georgia, serif;
+        font-weight: 400;
+        font-size: 1.55rem;
+      }
+
+      .trait p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      /* =========================================================
+       WRITING / HOBBIES
+    ========================================================= */
+
+      .writing-box {
+        margin-top: 48px;
+        padding: clamp(25px, 5vw, 55px);
+        border-radius: var(--radius);
+        border: 1px solid var(--glass-border);
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 122, 173, 0.08),
+            rgba(130, 115, 255, 0.07)
+          ),
+          var(--glass);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .writing-box::before {
+        content: "“";
+        position: absolute;
+        right: 30px;
+        top: -30px;
+        font-family: Georgia, serif;
+        font-size: 13rem;
+        color: rgba(255, 255, 255, 0.035);
+        pointer-events: none;
+      }
+
+      .writing-box h3 {
+        font-family: Georgia, serif;
+        font-size: clamp(2rem, 6vw, 3.6rem);
+        font-weight: 400;
+        max-width: 720px;
+        line-height: 1.05;
+      }
+
+      .writing-box p {
+        max-width: 680px;
+        margin-top: 22px;
+        color: var(--muted);
+      }
+
+      .hobby-machine {
+        margin-top: 22px;
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .hobby-label {
+        color: var(--dim);
+        font-size: 0.75rem;
+      }
+
+      .hobby {
+        display: inline-block;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        padding: 7px 12px;
+        border-radius: 999px;
+        color: #eee;
+        background: rgba(255, 255, 255, 0.045);
+        transition: 0.3s ease;
+      }
+
+      .hobby.active {
+        border-color: rgba(255, 150, 190, 0.35);
+        color: var(--pink-soft);
+        transform: translateY(-2px);
+      }
+
+      /* =========================================================
+       BOOKS
+    ========================================================= */
+
+      .books-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        margin-top: 48px;
+      }
+
+      .book {
+        min-height: 260px;
+        padding: 20px;
+        border-radius: 20px;
+        border: 1px solid var(--glass-border);
+        background: rgba(255, 255, 255, 0.035);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: 0.35s ease;
+      }
+
+      .book:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.065);
+      }
+
+      .book-number {
+        color: var(--dim);
+        font-size: 0.65rem;
+      }
+
+      .book-author {
+        margin-top: 20px;
+        font-family: Georgia, serif;
+        font-size: 1.2rem;
+      }
+
+      .book-joke {
+        color: var(--muted);
+        font-size: 0.76rem;
+        line-height: 1.55;
+      }
+
+      .book-footer {
+        margin-top: 35px;
+        max-width: 800px;
+        font-family: Georgia, serif;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        line-height: 1.2;
+      }
+
+      .book-footer span {
+        color: var(--pink-soft);
+      }
+
+      /* =========================================================
+       HEALTH
+    ========================================================= */
+
+      .health-layout {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 16px;
+      }
+
+      .health-main,
+      .health-side {
+        border: 1px solid var(--glass-border);
+        background: var(--glass);
+        border-radius: var(--radius);
+        padding: clamp(25px, 4vw, 45px);
+      }
+
+      .health-main h3 {
+        font-family: Georgia, serif;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .health-main p {
+        margin-top: 20px;
+        color: var(--muted);
+      }
+
+      .health-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .health-item {
+        padding: 17px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        color: #d8d4d8;
+        font-size: 0.9rem;
+      }
+
+      .health-item:last-child {
+        border-bottom: 0;
+      }
+
+      /* =========================================================
+       SUPPORT
+    ========================================================= */
+
+      .support {
+        text-align: center;
+      }
+
+      .support-inner {
+        max-width: 780px;
+        margin: auto;
+      }
+
+      .support h2 {
+        font-family: Georgia, serif;
+        font-size: clamp(3rem, 9vw, 6.5rem);
+        font-weight: 400;
+        line-height: 0.95;
+      }
+
+      .support h2 span {
+        color: var(--pink-soft);
+      }
+
+      .support-text {
+        max-width: 600px;
+        margin: 28px auto 0;
+        color: var(--muted);
+      }
+
+      .support-button {
+        margin-top: 30px;
+        padding: 14px 21px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+        color: white;
+        background: rgba(255, 255, 255, 0.05);
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .support-button:active {
+        transform: scale(0.97);
+      }
+
+      .hidden-message {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition:
+          max-height 0.7s ease,
+          opacity 0.5s ease,
+          margin 0.5s ease;
+      }
+
+      .hidden-message.show {
+        max-height: 300px;
+        opacity: 1;
+        margin-top: 30px;
+      }
+
+      .hidden-message p {
+        color: #ddd8dd;
+        font-family: Georgia, serif;
+        font-size: clamp(1.2rem, 4vw, 1.7rem);
+        line-height: 1.45;
+      }
+
+      /* =========================================================
+       CAKE
+    ========================================================= */
+
+      .cake-section {
+        text-align: center;
+        padding-bottom: 80px;
+      }
+
+      .cake {
+        width: 180px;
+        height: 150px;
+        margin: 55px auto 30px;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        touch-action: manipulation;
+      }
+
+      .cake-base {
+        position: absolute;
+        bottom: 0;
+        left: 15px;
+        width: 150px;
+        height: 82px;
+        border-radius: 12px 12px 22px 22px;
+        background: linear-gradient(to bottom, #ff9cbe, #d65b8a);
+        box-shadow: 0 20px 50px rgba(255, 87, 145, 0.16);
+      }
+
+      .cake-top {
+        position: absolute;
+        left: 10px;
+        bottom: 67px;
+        width: 160px;
+        height: 35px;
+        border-radius: 50%;
+        background: #ffbfd4;
+      }
+
+      .candle {
+        position: absolute;
+        left: 83px;
+        bottom: 98px;
+        width: 14px;
+        height: 42px;
+        border-radius: 5px;
+        background: repeating-linear-gradient(
+          135deg,
+          #fff,
+          #fff 7px,
+          #9b8dff 7px,
+          #9b8dff 12px
+        );
+      }
+
+      .flame {
+        position: absolute;
+        left: 84px;
+        bottom: 139px;
+        width: 13px;
+        height: 20px;
+        border-radius: 50% 50% 50% 50%;
+        background: #ffd36e;
+        box-shadow: 0 0 25px #ffb94f;
+        animation: flame 0.7s ease-in-out infinite alternate;
+      }
+
+      @keyframes flame {
+        from {
+          transform: scale(1) rotate(-2deg);
+        }
+
+        to {
+          transform: scale(0.85) rotate(3deg);
+        }
+      }
+
+      .flame.off {
+        opacity: 0;
+        transform: scale(0);
+        animation: none;
+      }
+
+      .cake-hint {
+        color: var(--dim);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      /* =========================================================
+       FINAL
+    ========================================================= */
+
+      .final {
+        min-height: 80svh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+
+      .final-inner {
+        max-width: 850px;
+        margin: auto;
+      }
+
+      .final h2 {
+        font-family: Georgia, serif;
+        font-size: clamp(3rem, 10vw, 7rem);
+        line-height: 0.9;
+        font-weight: 400;
+      }
+
+      .final h2 span {
+        color: var(--pink-soft);
+      }
+
+      .final p {
+        max-width: 700px;
+        margin: 35px auto 0;
+        color: var(--muted);
+      }
+
+      .signature {
+        margin-top: 45px;
+        color: var(--dim);
+        font-family: Georgia, serif;
+        font-style: italic;
+      }
+
+      .date-footer {
+        margin-top: 12px;
+        color: #55515a;
+        font-size: 0.7rem;
+        letter-spacing: 0.16em;
+      }
+
+      /* =========================================================
+       FLOATING COMMENTS
+    ========================================================= */
+
+      .floating-comment {
+        position: fixed;
+        z-index: 200;
+        pointer-events: none;
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 0.68rem;
+        white-space: nowrap;
+        animation: floatAway 4s ease forwards;
+      }
+
+      @keyframes floatAway {
+        0% {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+
+        15% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateY(-80px);
+        }
+      }
+
+      /* =========================================================
+       PARTICLES
+    ========================================================= */
+
+      #particles {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* =========================================================
+       REVEAL
+    ========================================================= */
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(35px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* =========================================================
+       MOBILE
+    ========================================================= */
+
+      @media (max-width: 800px) {
+        section {
+          width: min(100% - 28px, 600px);
+          padding: 82px 0;
+        }
+
+        .top-nav {
+          top: auto;
+          bottom: max(12px, env(safe-area-inset-bottom));
+          width: calc(100% - 24px);
+          padding: 7px;
+        }
+
+        .top-nav a {
+          font-size: 0.62rem;
+          padding: 9px 4px;
+        }
+
+        .hero {
+          min-height: 100svh;
+          padding-top: 100px;
+          padding-bottom: 100px;
+        }
+
+        .birthday-date {
+          margin-bottom: 22px;
+        }
+
+        .hero h1 {
+          font-size: clamp(4rem, 19vw, 7rem);
+        }
+
+        .hero-subtitle {
+          font-size: 0.94rem;
+          margin-top: 27px;
+        }
+
+        .scroll-hint {
+          margin-top: 38px;
+        }
+
+        .traits-grid {
+          grid-template-columns: 1fr;
+          gap: 11px;
+          margin-top: 35px;
+        }
+
+        .trait {
+          min-height: auto;
+          padding: 24px;
+        }
+
+        .trait h3 {
+          margin-top: 22px;
+          font-size: 1.45rem;
+        }
+
+        .books-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          margin-top: 35px;
+        }
+
+        .book {
+          min-height: 210px;
+          padding: 17px;
+        }
+
+        .book:last-child {
+          grid-column: span 2;
+          min-height: 180px;
+        }
+
+        .book-footer {
+          margin-top: 30px;
+        }
+
+        .health-layout {
+          grid-template-columns: 1fr;
+          gap: 11px;
+          margin-top: 35px;
+        }
+
+        .health-main,
+        .health-side {
+          padding: 25px;
+        }
+
+        .writing-box {
+          margin-top: 35px;
+        }
+
+        .support {
+          padding-top: 100px;
+          padding-bottom: 100px;
+        }
+
+        .cake {
+          margin-top: 45px;
+        }
+
+        .final {
+          min-height: 90svh;
+          padding-bottom: 130px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .intro {
+          padding: 18px;
+        }
+
+        .intro-small {
+          font-size: 0.6rem;
+        }
+
+        .intro-name {
+          font-size: 3.5rem;
+        }
+
+        .intro-line {
+          font-size: 0.82rem;
+        }
+
+        .hero h1 {
+          font-size: 19vw;
+        }
+
+        .section-title {
+          font-size: 2.35rem;
+        }
+
+        .books-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .book,
+        .book:last-child {
+          grid-column: auto;
+          min-height: 175px;
+        }
+
+        .writing-box h3 {
+          font-size: 2.1rem;
+        }
+
+        .top-nav a:nth-child(4) {
+          display: none;
+        }
+      }
+
+      /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =======================================================
+       BACKGROUND
+  ======================================================== -->
+
+    <div class="background">
+      <div class="orb one"></div>
+      <div class="orb two"></div>
+      <div class="orb three"></div>
+    </div>
+
+    <canvas id="particles"></canvas>
+    <div class="noise"></div>
+
+    <!-- =======================================================
+       INTRO
+  ======================================================== -->
+
+    <div class="intro" id="intro">
+      <div class="intro-inner">
+        <div class="intro-small">A very serious birthday document</div>
+
+        <div class="intro-name">De Aakriti</div>
+
+        <div class="intro-line" id="introLine">
+          Loading unnecessary amounts of affection...
+        </div>
+
+        <button class="intro-button" id="enterButton">Proceed anyway →</button>
+      </div>
+    </div>
+
+    <!-- =======================================================
+       NAV
+  ======================================================== -->
+
+    <nav class="top-nav">
+      <a href="#about">Her</a>
+      <a href="#books">Books</a>
+      <a href="#writing">Chaos</a>
+      <a href="#cake">Cake</a>
+    </nav>
+
+    <main>
+      <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+      <section class="hero" id="about">
+        <div class="hero-content">
+          <div class="birthday-date">04 · Oct · 1999</div>
+
+          <h1>
+            Happy
+            <span>Birthday,</span>
+            Aakriti.
+          </h1>
+
+          <p class="hero-subtitle">
+            Another year has successfully been completed.
+            <strong>No major bugs detected.</strong>
+            Some questionable decisions, perhaps. But overall, an impressive
+            release.
+          </p>
+
+          <div class="scroll-hint">
+            <div class="scroll-line"></div>
+            Continue before she picks another hobby
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         TRAITS
+    ====================================================== -->
+
+      <section class="reveal">
+        <div class="section-label">A completely unbiased assessment</div>
+
+        <h2 class="section-title">
+          Things that make<br />
+          you annoyingly you.
+        </h2>
+
+        <p class="section-description">
+          There are several things about you that are objectively inconvenient
+          for anyone attempting to remain completely indifferent.
+        </p>
+
+        <div class="traits-grid">
+          <article class="trait">
+            <div class="trait-number">01</div>
+            <h3>Annoyingly Kind</h3>
+            <p>
+              Somehow available for the people you care about, even when you
+              have enough going on yourself.
+            </p>
+          </article>
+
+          <article class="trait">
+            <div class="trait-number">02</div>
+            <h3>Unfairly Gorgeous</h3>
+            <p>
+              Honestly unnecessary. The rest of us are trying to function here.
+            </p>
+          </article>
+
+          <article class="trait">
+            <div class="trait-number">03</div>
+            <h3>Unfortunately Funny</h3>
+            <p>
+              Which makes it considerably harder to win an argument with you.
+            </p>
+          </article>
+
+          <article class="trait">
+            <div class="trait-number">04</div>
+            <h3>Ridiculously Independent</h3>
+            <p>
+              You can absolutely do everything yourself. Doesn't mean you always
+              have to.
+            </p>
+          </article>
+
+          <article class="trait">
+            <div class="trait-number">05</div>
+            <h3>Takes Care of Herself</h3>
+            <p>
+              Mind, body, peace, boundaries. Character development apparently
+              comes naturally to you.
+            </p>
+          </article>
+
+          <article class="trait">
+            <div class="trait-number">06</div>
+            <h3>Always Experimenting</h3>
+            <p>
+              New hobby? New interest? New thing to learn? At this point I'm
+              just waiting for the next update.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         WRITING + HOBBIES
+    ====================================================== -->
+
+      <section id="writing" class="reveal">
+        <div class="section-label">The ever-changing hobby department</div>
+
+        <h2 class="section-title">
+          You write things.<br />
+          Then you become<br />
+          interested in new things.
+        </h2>
+
+        <div class="writing-box">
+          <h3>
+            Honestly, I respect the commitment to having approximately seventeen
+            different eras.
+          </h3>
+
+          <p>
+            One day you're reading. Then you're writing. Then suddenly there's a
+            completely new interest that has apparently become your entire
+            personality for the next three weeks.
+          </p>
+
+          <div class="hobby-machine">
+            <span class="hobby-label">Current possibility:</span>
+
+            <span class="hobby active" id="hobby"> Writing ✍️ </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         BOOKS
+    ====================================================== -->
+
+      <section id="books" class="reveal">
+        <div class="section-label">Your questionable reading choices</div>
+
+        <h2 class="section-title">
+          Five authors.<br />
+          Zero emotional stability.
+        </h2>
+
+        <div class="books-grid">
+          <article class="book">
+            <div class="book-number">01</div>
+
+            <div class="book-author">Albert Camus</div>
+
+            <div class="book-joke">
+              Because apparently life needed more questions.
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-number">02</div>
+
+            <div class="book-author">Franz Kafka</div>
+
+            <div class="book-joke">
+              Perfect reading material for when reality wasn't weird enough.
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-number">03</div>
+
+            <div class="book-author">Colleen Hoover</div>
+
+            <div class="book-joke">
+              Because apparently Dostoevsky wasn't enough.
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-number">04</div>
+
+            <div class="book-author">Khaled Hosseini</div>
+
+            <div class="book-joke">
+              Your emotional stability would like a word.
+            </div>
+          </article>
+
+          <article class="book">
+            <div class="book-number">05</div>
+
+            <div class="book-author">Fyodor Dostoevsky</div>
+
+            <div class="book-joke">
+              Because apparently one existential crisis wasn't enough.
+            </div>
+          </article>
+        </div>
+
+        <div class="book-footer">
+          Most people read books to escape reality. You apparently read
+          <span>Camus, Kafka and Dostoevsky</span>
+          to make reality look optimistic.
+          <br /><br />
+          And then casually throw Colleen Hoover into the mix.
+          <span>Bold strategy.</span>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         HEALTH
+    ====================================================== -->
+
+      <section class="reveal">
+        <div class="section-label">The responsible section</div>
+
+        <h2 class="section-title">
+          Taking care<br />
+          of yourself.
+        </h2>
+
+        <div class="health-layout">
+          <div class="health-main">
+            <h3>Apparently you understand something a lot of people don't.</h3>
+
+            <p>
+              Looking after your physical and mental health isn't selfish.
+              Protecting your peace isn't rude. Rest isn't laziness.
+            </p>
+
+            <p>Keep doing that. Seriously.</p>
+          </div>
+
+          <div class="health-side">
+            <div class="health-item">🧠 Protect your mental space.</div>
+
+            <div class="health-item">🫀 Take care of your body.</div>
+
+            <div class="health-item">🌱 Give yourself room to grow.</div>
+
+            <div class="health-item">🚫 Say no when you mean no.</div>
+
+            <div class="health-item">
+              😌 And occasionally do absolutely nothing.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         SUPPORT
+    ====================================================== -->
+
+      <section class="support reveal">
+        <div class="support-inner">
+          <div class="section-label">One thing I'm serious about</div>
+
+          <h2>
+            You don't have<br />
+            to do <span>everything</span><br />
+            alone.
+          </h2>
+
+          <p class="support-text">
+            I know you're independent. Very independent. Possibly unnecessarily
+            independent.
+          </p>
+
+          <button class="support-button" id="supportButton">
+            There's a message here →
+          </button>
+
+          <div class="hidden-message" id="hiddenMessage">
+            <p>
+              I'm here. No fixing required. No explanation necessary. You can
+              just show up.
+              <br /><br />
+              And yes, that was almost a sincere sentence. Don't get used to it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         CAKE
+    ====================================================== -->
+
+      <section class="cake-section reveal" id="cake">
+        <div class="section-label">Your one responsibility today</div>
+
+        <h2 class="section-title">Make a wish.</h2>
+
+        <div
+          class="cake"
+          id="cakeButton"
+          role="button"
+          tabindex="0"
+          aria-label="Blow out the birthday candle"
+        >
+          <div class="flame" id="flame"></div>
+
+          <div class="candle"></div>
+
+          <div class="cake-top"></div>
+
+          <div class="cake-base"></div>
+        </div>
+
+        <div class="cake-hint" id="cakeHint">Tap the cake</div>
+      </section>
+
+      <!-- =====================================================
+         FINAL
+    ====================================================== -->
+
+      <section class="final reveal">
+        <div class="final-inner">
+          <div class="section-label">Anyway...</div>
+
+          <h2>
+            Stay annoyingly<br />
+            <span>wonderful.</span>
+          </h2>
+
+          <p>
+            Keep reading books that emotionally destroy you. Keep writing things
+            that shouldn't stay inside your head. Keep trying random new things.
+            Keep taking care of your mind and body. Keep laughing at things you
+            probably shouldn't. Keep being independent. Keep being there for the
+            people you love. Keep being kind.
+            <br /><br />
+            And, unfortunately... keep being gorgeous.
+          </p>
+
+          <div class="signature">
+            — from someone who's very obviously not as indifferent as he
+            pretends to be
+          </div>
+
+          <div class="date-footer">04 · Oct · 1999 → still going</div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      /* =========================================================
+       INTRO
+    ========================================================= */
+
+      const intro = document.getElementById("intro");
+      const enterButton = document.getElementById("enterButton");
+      const introLine = document.getElementById("introLine");
+
+      const introMessages = [
+        "Loading unnecessary amounts of affection...",
+        "Calibrating sarcasm...",
+        "Checking literary references...",
+        "Accepting that she will probably start another hobby...",
+        "Okay. This should be enough.",
+      ];
+
+      let introIndex = 0;
+
+      function cycleIntroMessage() {
+        if (introIndex >= introMessages.length) return;
+
+        introLine.textContent = introMessages[introIndex];
+        introIndex++;
+
+        setTimeout(cycleIntroMessage, 900);
+      }
+
+      setTimeout(cycleIntroMessage, 500);
+
+      enterButton.addEventListener("click", () => {
+        intro.classList.add("hidden");
+
+        setTimeout(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }, 100);
+      });
+
+      /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+      const revealElements = document.querySelectorAll(".reveal");
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+        },
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+
+      /* =========================================================
+       TRAIT TILT — DESKTOP ONLY
+    ========================================================= */
+
+      const traits = document.querySelectorAll(".trait");
+
+      if (window.matchMedia("(pointer: fine)").matches) {
+        traits.forEach((card) => {
+          card.addEventListener("mousemove", (event) => {
+            const rect = card.getBoundingClientRect();
+
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const rotateX = (y / rect.height - 0.5) * -7;
+            const rotateY = (x / rect.width - 0.5) * 7;
+
+            card.style.transform = `perspective(800px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-4px)`;
+          });
+
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "";
+          });
+        });
+      }
+
+      /* =========================================================
+       HOBBY ROTATOR
+    ========================================================= */
+
+      const hobbies = [
+        "Writing ✍️",
+        "Reading 📚",
+        "Something new 🧪",
+        "A new obsession 👀",
+        "Self-improvement 🌱",
+        "Probably another hobby 🎨",
+        "Who knows anymore 🤷‍♀️",
+      ];
+
+      const hobbyElement = document.getElementById("hobby");
+
+      let hobbyIndex = 0;
+
+      setInterval(() => {
+        hobbyElement.style.opacity = "0";
+        hobbyElement.style.transform = "translateY(5px)";
+
+        setTimeout(() => {
+          hobbyIndex = (hobbyIndex + 1) % hobbies.length;
+
+          hobbyElement.textContent = hobbies[hobbyIndex];
+
+          hobbyElement.style.opacity = "1";
+          hobbyElement.style.transform = "translateY(0)";
+        }, 250);
+      }, 1800);
+
+      /* =========================================================
+       SUPPORT MESSAGE
+    ========================================================= */
+
+      const supportButton = document.getElementById("supportButton");
+
+      const hiddenMessage = document.getElementById("hiddenMessage");
+
+      supportButton.addEventListener("click", () => {
+        hiddenMessage.classList.toggle("show");
+
+        if (hiddenMessage.classList.contains("show")) {
+          supportButton.textContent = "Okay, you found it.";
+        } else {
+          supportButton.textContent = "There's a message here →";
+        }
+      });
+
+      /* =========================================================
+       CAKE
+    ========================================================= */
+
+      const cake = document.getElementById("cakeButton");
+      const flame = document.getElementById("flame");
+      const cakeHint = document.getElementById("cakeHint");
+
+      let candleBlown = false;
+
+      function blowCandle() {
+        if (candleBlown) return;
+
+        candleBlown = true;
+
+        flame.classList.add("off");
+
+        cakeHint.textContent = "Wish accepted. Probably.";
+
+        createConfetti();
+
+        setTimeout(() => {
+          createFloatingComment(
+            "Congratulations. You have successfully interacted with cake.",
+          );
+        }, 500);
+      }
+
+      cake.addEventListener("click", blowCandle);
+
+      cake.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          blowCandle();
+        }
+      });
+
+      /* =========================================================
+       CONFETTI
+    ========================================================= */
+
+      function createConfetti() {
+        const symbols = ["✦", "✧", "♡", "✺", "·", "★"];
+
+        for (let i = 0; i < 45; i++) {
+          const particle = document.createElement("div");
+
+          particle.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+          particle.style.position = "fixed";
+          particle.style.left = "50%";
+          particle.style.top = "50%";
+          particle.style.zIndex = "999";
+          particle.style.pointerEvents = "none";
+          particle.style.fontSize = `${10 + Math.random() * 18}px`;
+
+          const angle = Math.random() * Math.PI * 2;
+
+          const distance = 100 + Math.random() * 280;
+
+          const x = Math.cos(angle) * distance;
+
+          const y = Math.sin(angle) * distance;
+
+          particle.animate(
+            [
+              {
+                transform: "translate(-50%, -50%) scale(0)",
+                opacity: 1,
+              },
+              {
+                transform: `translate(
+                  calc(-50% + ${x}px),
+                  calc(-50% + ${y}px)
+                ) scale(1)`,
+                opacity: 0,
+              },
+            ],
+            {
+              duration: 900 + Math.random() * 1000,
+              easing: "cubic-bezier(.2,.8,.2,1)",
+            },
+          );
+
+          document.body.appendChild(particle);
+
+          setTimeout(() => {
+            particle.remove();
+          }, 2000);
+        }
+      }
+
+      /* =========================================================
+       FLOATING COMMENTS
+    ========================================================= */
+
+      const comments = [
+        "She definitely has another hobby planned.",
+        "Dostoevsky would understand.",
+        "Camus is somehow involved.",
+        "This is getting suspiciously sincere.",
+        "Don't tell her I said that.",
+        "Independent woman detected.",
+        "Potential new hobby incoming...",
+        "Colleen Hoover has entered the chat.",
+        "Kafka would make this more complicated.",
+        "Okay, enough feelings.",
+      ];
+
+      function createFloatingComment(text) {
+        const comment = document.createElement("div");
+
+        comment.className = "floating-comment";
+
+        comment.textContent =
+          text || comments[Math.floor(Math.random() * comments.length)];
+
+        comment.style.left = `${15 + Math.random() * 70}%`;
+
+        comment.style.top = `${45 + Math.random() * 35}%`;
+
+        document.body.appendChild(comment);
+
+        setTimeout(() => {
+          comment.remove();
+        }, 4000);
+      }
+
+      /* =========================================================
+       RANDOM COMMENTS WHILE SCROLLING
+    ========================================================= */
+
+      let commentCooldown = false;
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (commentCooldown) return;
+
+          if (Math.random() > 0.96) {
+            commentCooldown = true;
+
+            createFloatingComment();
+
+            setTimeout(() => {
+              commentCooldown = false;
+            }, 5000);
+          }
+        },
+        { passive: true },
+      );
+
+      /* =========================================================
+       PARTICLES
+    ========================================================= */
+
+      const canvas = document.getElementById("particles");
+
+      const ctx = canvas.getContext("2d");
+
+      let particles = [];
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth * Math.min(window.devicePixelRatio, 2);
+
+        canvas.height =
+          window.innerHeight * Math.min(window.devicePixelRatio, 2);
+
+        canvas.style.width = window.innerWidth + "px";
+
+        canvas.style.height = window.innerHeight + "px";
+
+        ctx.setTransform(
+          Math.min(window.devicePixelRatio, 2),
+          0,
+          0,
+          Math.min(window.devicePixelRatio, 2),
+          0,
+          0,
+        );
+      }
+
+      function createParticles() {
+        const mobile = window.innerWidth < 700;
+
+        const count = mobile ? 25 : 55;
+
+        particles = [];
+
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            size: Math.random() * 1.6 + 0.3,
+            speed: Math.random() * 0.25 + 0.05,
+            opacity: Math.random() * 0.4 + 0.05,
+          });
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        particles.forEach((particle) => {
+          particle.y -= particle.speed;
+
+          if (particle.y < -5) {
+            particle.y = window.innerHeight + 5;
+
+            particle.x = Math.random() * window.innerWidth;
+          }
+
+          ctx.beginPath();
+
+          ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+
+          ctx.fillStyle = `rgba(255,255,255,${particle.opacity})`;
+
+          ctx.fill();
+        });
+
+        requestAnimationFrame(animateParticles);
+      }
+
+      resizeCanvas();
+      createParticles();
+      animateParticles();
+
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        createParticles();
+      });
+
+      /* =========================================================
+       TOUCH FEEDBACK
+    ========================================================= */
+
+      document.addEventListener(
+        "touchstart",
+        (event) => {
+          const target = event.target.closest(
+            ".trait, .book, .support-button, .cake",
+          );
+
+          if (!target) return;
+
+          target.style.transform = "scale(0.985)";
+
+          setTimeout(() => {
+            target.style.transform = "";
+          }, 120);
+        },
+        { passive: true },
+      );
+    </script>
+  </body>
+</html>
